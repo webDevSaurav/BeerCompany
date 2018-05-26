@@ -1,0 +1,6 @@
+.cart-span{
+    display: inline-block;
+    border: 1px solid white;
+    padding : 5px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,15 @@
+
+  <div class="card mb-4 box-shadow">
+    <img class="card-img-top" src="../../assets/beer-mug.png" alt="Card image cap" width="80%">
+    <div class="card-body">
+      <h5 class="card-title">{{beerItemData.name}}</h5>
+      <p class="card-text">
+        <span *ngIf="beerItemData.abv"><strong>abv : &nbsp;</strong>{{beerItemData.abv}}<br></span>
+        <span *ngIf="beerItemData.ibu"><strong>ibu : &nbsp;</strong>{{beerItemData.ibu}}<br></span>
+        <span *ngIf="beerItemData.style"><strong>style : &nbsp;</strong>{{beerItemData.style}}<br></span>
+      </p>
+      <div class="d-flex justify-content-between align-items-center">
+      <button class="btn btn-danger" (click) = "addToCart()" [disabled] = "disable">Add To Cart</button>  
+      </div>
+    </div>
+  </div>

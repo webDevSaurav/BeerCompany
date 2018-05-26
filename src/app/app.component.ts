@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  cartLength
+  constructor(private cart : CartService){
+    this.cart.sendCartLength.subscribe(
+      data => {
+        this.cartLength = data 
+      }
+    )
+  }
 }

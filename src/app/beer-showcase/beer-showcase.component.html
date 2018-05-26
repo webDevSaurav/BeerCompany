@@ -1,0 +1,39 @@
+<div class="container" *ngIf="beerData" id="beerShowCase">
+  <div class="row">
+    <div class="col-md-4">
+        <form>
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Beer Style : </label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" (change)="filterStyle($event.target.value)">
+              <option value = "all" selected>All</option>
+              <option value="{{style}}" *ngFor="let style of beerStyleList">{{style}}</option>
+            </select>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <form>
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Sort beer by alcohol content : </label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" (change)="sortBeer($event.target.value)">
+              <option value="ascending">Ascending</option>
+              <option value="descending" selected>Descending</option>
+            </select>
+        </form>
+    </div>
+    <div class="col-md-4">
+        <form >
+            <label class="my-1 mr-2" for="searchBeer">Search Beer : </label>
+            <input type="text" class="form-control" id="searchBeer" placeholder="Search a beer..." (input)="searchBeer($event.target.value)">
+        </form>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let beerItem of modBeerData">
+        <app-beer-item [beerItemData] = "beerItem"></app-beer-item>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!beerData" class="text-center"> 
+  <img src="../../assets/loading-beer.gif" alt="" width="20%">
+</div>
